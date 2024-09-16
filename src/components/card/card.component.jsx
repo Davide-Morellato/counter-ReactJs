@@ -5,6 +5,8 @@ import React from "react";
 
 import './card.styles.scss'; //per i fogli di stile/immagini è necessario inserire l'estensione
 
+//importo il componente counter
+import Counter from "../counter/counter.component";
 
 //creazione funzione del componente Card
 //
@@ -36,7 +38,11 @@ const Card = ({testo, children}) => {
             
             {/* NB -> se non fosse stato destrutturato il parametro,
                 allora l'invocazione sarebbe dovuta avvenire con: {props.children}*/}
-            {children}
+            {/* {children} */}
+
+            {/**/}
+            {/* INSERISCO IL COMPONENTE CONTATORE */}
+            <Counter/>
         </div>
     );
 }

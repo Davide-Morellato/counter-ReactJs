@@ -37,15 +37,15 @@ function App() {
     <div className="App">
       {/* inserisco il componente Card */}
       {/* aggiungo l'attributo testo con una stringa e poi nel componente lo invoco per essere stampato in pagina */}
-      {/* <Card testo='Ciao'/> */}
+      <Card testo='contatore'/>
       {/**/}
       {/**/}
       {/* modifico il componete da selfclosed a TAG con Contenuto */}
-      <Card testo="Ciao">
+      {/* <Card testo="Ciao">
         <button type="submit">
           Send
         </button>
-      </Card>
+      </Card> */}
     </div>
   );
 }
