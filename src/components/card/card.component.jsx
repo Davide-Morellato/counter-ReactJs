@@ -34,8 +34,6 @@ const Card = ({testo, children}) => {
                 {testo}
             </h1>
 
-            <hr />
-            
             {/* NB -> se non fosse stato destrutturato il parametro,
                 allora l'invocazione sarebbe dovuta avvenire con: {props.children}*/}
             {/* {children} */}
