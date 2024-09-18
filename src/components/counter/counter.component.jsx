@@ -16,7 +16,17 @@ class Counter extends React.Component {
     //definisco lo stato come oggetto di Js, utilizzando this per accedere alle props
     this.state = {
       //dichiaro una proprietà iniziale
-      number: 0,
+      // number: 0,
+
+      //dichiaro una proprietà come oggetto
+      number: {
+        value: 0,
+        otherProperty: 'ciao'
+      },
+
+      test: {
+        othersProperty: 'hello'
+      }
     };
   }
 
@@ -42,11 +52,14 @@ class Counter extends React.Component {
   //   console.log('componente smontato')
   // }
   //
-  // //metodo componentDidUpdate -> permette di aggiornare lo stato del componente
-  // componentDidUpdate(){
-  //   console.log('componente aggiornato');
-  //
-  // }
+  //metodo componentDidUpdate -> permette di aggiornare lo stato del componente
+  componentDidUpdate(){
+
+    //controllo lo state ad ogni click
+    console.log(this.state, 'componente aggiornato')
+    // console.log('componente aggiornato');
+
+  }
   //
   // //metodo componentDidMount (invocato SOLO alla prima esecuzione del componente)
   // componentDidMount(){
@@ -68,7 +81,15 @@ class Counter extends React.Component {
 
     //imposto l'incremento aggiornando la proprietà number, nello state, con il metodo setState()
     this.setState({
-      number: this.state.number + 1,
+      // number: this.state.number + 1,
+
+      //passo la nuova proprietà come oggetto
+      number:{
+
+        //spread operator per invocare le proprietà di number che non devono essere modificate
+        ...this.state.number,
+        value: this.state.number.value + 1
+      }
     });
   };
 
@@ -79,9 +100,16 @@ class Counter extends React.Component {
     //controllo
     //SE number > 0
     //ALLORA imposto il decremento aggiornando la proprietà number, nello state, con il metodo setState()
-    if (this.state.number > 0) {
+    if (this.state.number.value > 0) {
       this.setState({
-        number: this.state.number - 1,
+        // number: this.state.number - 1,
+
+      //passo la nuova proprietà come oggetto
+        number:{
+          //spread operator per invocare le proprietà di number che non devono essere modificate
+          ...this.state.number,
+          value: this.state.number.value - 1
+        }
       });
     }
   }
@@ -89,13 +117,41 @@ class Counter extends React.Component {
   //definisco la grafica tramite il metodo render
   //al cui interno definisco i tag
   render() {
+
+    //dichiaro una classe come oggetto da passare per lo stile in linea
+    const box = {
+      color: '#000000',
+      backgroundColor: '#FFFFFF',
+      maxWidth: '100%',
+      maxHeight: '100%',
+      alignSelf: 'center',
+      marginTop: '15px',
+      padding: '0px 10px',
+      borderRadius: '15px'
+    }
+
+    
     return (
       <div className="counter">
-        <div className="number_counter">
+        {/* rendo condizionale la classe */}
+        <div
+          className={`number_counter ${
+            this.state.number.value >= 5 ? "red" : null
+          }`}
+        >
           {/* aggiungo la proprietà dello state */}
-          {this.state.number}
+          {this.state.number.value}
         </div>
 
+        {/* aggiungo un messaggio arrivati ad un determinato valore */}
+        {/* passandogli come stile in linea l'oggetto dichiarato prima di render */}
+        {
+          this.state.number.value >= 5 ? (
+            <div style={box}>
+              <p>Ottimo!, sei a {this.state.number.value}!</p>
+            </div>
+          ) : null
+        }
         <div className="wrapper_buttons">
           {/* aggiungo l'evento onClick per decrementare il valore di number */}
           {/* invoco la funzione nell'evento tramite un'arrow function */}
@@ -106,7 +162,7 @@ class Counter extends React.Component {
           >
             Decrease
           </button>
-          
+
           {/* aggiungo l'evento onClick per incrementare il valore di number */}
           <button
             type="submit"
