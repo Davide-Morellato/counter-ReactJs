@@ -26,30 +26,34 @@ import Users from "../users/users.commponent";
 const Card = ({testo, children}) => {
 
     return (
-      <div className="card">
-        {/* SCRIVO NEL COMPONENTE */}
-        <h1>
-          {/* invoco il parametro props a cui associo l'attributo testo presente in App.js */}
-          {/* {props.testo} */}
-          {/**/}
-          {/**/}
-          {/* invoco l'oggetto destrutturato */}
-          {testo}
-        </h1>
+      //aggiungo il tag FRAGMENT per aggiungere all'interno del componente altri tag
+      // <React.Fragment>
+        <div className="card">
+          {/* SCRIVO NEL COMPONENTE */}
+          <h1>
+            {/* invoco il parametro props a cui associo l'attributo testo presente in App.js */}
+            {/* {props.testo} */}
+            {/**/}
+            {/**/}
+            {/* invoco l'oggetto destrutturato */}
+            {testo}
+          </h1>
 
-        {/* NB -> se non fosse stato destrutturato il parametro,
+          {/* NB -> se non fosse stato destrutturato il parametro,
                 allora l'invocazione sarebbe dovuta avvenire con: {props.children}*/}
-        {/* {children} */}
+          {/* {children} */}
 
-        {/**/}
-        {/* INSERISCO IL COMPONENTE CONTATORE */}
-        <Counter />
+          {/**/}
+          {/* INSERISCO IL COMPONENTE CONTATORE */}
+          <Counter />
 
-        <br />
+          <br />
 
-        {/* INSERISCO IL COMPONENTE USERS */}
-        <Users />
-      </div>
+          {/* INSERISCO IL COMPONENTE USERS */}
+          <Users />
+        </div>
+      //<h1>Ciao</h1>
+      //</React.Fragment>
     );
 }
 

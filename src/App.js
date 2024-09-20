@@ -3,6 +3,7 @@
 // import logo from './logo.svg';
 import "./App.css";
 import Card from "./components/card/card.component"; //importo il componente Card
+// import Portal from "./components/portal/portal.component";
 
 function App() {
   //dichiaro una variabile per stamparla nel componente
@@ -46,6 +47,9 @@ function App() {
           Send
         </button>
       </Card> */}
+
+      {/* Aggiungo il Portale */}
+      {/* <Portal/> */}
     </div>
   );
 }
