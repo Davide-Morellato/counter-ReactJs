@@ -53,13 +53,13 @@ class Counter extends React.Component {
   // }
   //
   //metodo componentDidUpdate -> permette di aggiornare lo stato del componente
-  componentDidUpdate(){
+  // componentDidUpdate(){
 
-    //controllo lo state ad ogni click
-    console.log(this.state, 'componente aggiornato')
-    // console.log('componente aggiornato');
+  //   //controllo lo state ad ogni click
+  //   console.log(this.state, 'componente aggiornato')
+  //   // console.log('componente aggiornato');
 
-  }
+  // }
   //
   // //metodo componentDidMount (invocato SOLO alla prima esecuzione del componente)
   // componentDidMount(){

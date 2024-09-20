@@ -15,7 +15,6 @@ const Loading = (WrappedComponent) => {
     //ALTRIMENTI stampa il WrappedComponent con le altre props
     return loading ? (
         <div className="loading">
-
         </div>
     ) : <WrappedComponent {...otherProps}/>;
     }
